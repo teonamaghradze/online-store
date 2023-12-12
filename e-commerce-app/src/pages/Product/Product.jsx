@@ -1,3 +1,5 @@
+import "./Product.scss";
+
 function Product() {
   return <div>Product</div>;
 }
