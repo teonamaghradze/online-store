@@ -1,0 +1,13 @@
+.featured {
+  margin: 100px 200px;
+
+  .top-section {
+    margin-bottom: 50px;
+  }
+
+  .products-section {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+  }
+}

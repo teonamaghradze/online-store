@@ -9,8 +9,12 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 import { Link } from "react-router-dom";
 import "./Navbar.scss";
+import Cart from "../Cart/Cart";
+import { useState } from "react";
 
 function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div className="navbar">
       <div className="wrapper">
@@ -52,13 +56,17 @@ function Navbar() {
             <FontAwesomeIcon icon={faMagnifyingGlass} />
             <FontAwesomeIcon icon={faUser} />
             <FontAwesomeIcon icon={faHeart} />
-            <div className="cart-icon">
+            <div
+              className="cart-icon"
+              onClick={() => setIsOpen((prev) => !prev)}
+            >
               <FontAwesomeIcon icon={faShoppingCart} />
               <span>0</span>
             </div>
           </div>
         </div>
       </div>
+      {isOpen && <Cart />}
     </div>
   );
 }

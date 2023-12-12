@@ -17,22 +17,20 @@ function Slider() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   function handleLeft() {
-    setCurrentSlide(
-      currentSlide === 0 ? 2 : (currentSlide) => currentSlide - 1
-    );
+    setCurrentSlide(currentSlide === 0 ? 2 : currentSlide - 1);
   }
 
   function handleRight() {
-    setCurrentSlide(
-      currentSlide === 2 ? 0 : (currentSlide) => currentSlide + 1
-    );
+    setCurrentSlide(currentSlide === 2 ? 0 : currentSlide + 1);
   }
 
   return (
     <div className="slider">
-      <div className="container">
-        <img src={data[currentSlide]} alt="" />
-      </div>
+      {
+        <div className="container">
+          <img src={data[currentSlide]} alt="" />
+        </div>
+      }
 
       <div className="icons">
         <FontAwesomeIcon
@@ -51,3 +49,14 @@ function Slider() {
 }
 
 export default Slider;
+
+// <div
+//         className="container"
+//         style={{ transform: `translateX(-${currentSlide * 100}%)vw` }}
+
+//         // style={{ transform: `translateX(-${currentSlide * 100}vw)` }}
+//       >
+//         <img src={data[0]} alt="" />
+//         <img src={data[1]} alt="" />
+//         <img src={data[2]} alt="" />
+//       </div>

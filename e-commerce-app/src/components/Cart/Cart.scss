@@ -1,0 +1,16 @@
+.cart {
+  position: absolute;
+  right: 20px;
+  top: 80px;
+  z-index: 999;
+  background-color: white;
+  padding: 20px;
+
+  .item {
+    .image {
+      width: 80px;
+      height: 100px;
+      object-fit: cover;
+    }
+  }
+}
