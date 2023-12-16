@@ -1,5 +1,8 @@
+import { useEffect, useState } from "react";
 import Card from "../Card/Card";
 import "./FeaturedProducts.scss";
+
+const REACT_APP_API_URL = `http://localhost:1337/api`;
 
 function FeaturedProducts() {
   const data = [
@@ -42,6 +45,20 @@ function FeaturedProducts() {
     },
   ];
 
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetch(`${REACT_APP_API_URL}/products`)
+      .then((res) => res.json())
+      .then((data) => {
+        setProducts(data);
+        console.log(data); // Log the data here, not products.data
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+
   return (
     <div className="featured">
       <section className="top-section">
@@ -53,6 +70,12 @@ function FeaturedProducts() {
           <Card key={item.id} item={item} />
         ))}
       </section>
+
+      {products.data.map((el) => {
+        console.log(el.attributes.desc);
+        return <div>{el.attributes.desc}</div>;
+        // return <h1 key={el.id}>{el.attributes.title}</h1>;
+      })}
     </div>
   );
 }
